@@ -11,7 +11,13 @@ import models
 
 from database import engine, SessionLocal
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
+
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+
+app=FastAPI()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -21,7 +27,10 @@ templates = Jinja2Templates(
 
 templates.env.cache = {}
 
-app=FastAPI()
+@app.on_event("startup")
+def startup():
+    models.Base.metadata.create_all(bind=engine)
+
 
 app.mount(
     "/static",
