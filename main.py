@@ -4,7 +4,8 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 from fastapi.staticfiles import StaticFiles
-from pathlib import Path
+import os
+
 
 import models
 
@@ -12,9 +13,9 @@ from database import engine, SessionLocal
 
 models.Base.metadata.create_all(bind=engine)
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 app=FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
