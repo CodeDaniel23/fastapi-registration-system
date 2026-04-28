@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register form</title>
+        <link rel="stylesheet" href="/static/css/form.css">
+    </head>
+    <body>
+        <div class="navbar">Register Your Details</div>
+        <div class="card">
+        <form action="http://127.0.0.1:8000/register" method="post">
+        <button class="register">Registration Form</button>
+        <p style="text-align:center; font-size:17px;">Kindly fill in the form given below</p>
+
+        <label>User Name:</label>
+        <input type="text" name="username" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required minlength="5">
+
+        <label>Repeat Password:</label>
+        <input type="password" name="repeat_password" required minlength="6">
+
+        <button class="submit" type="submit">Submit</button>
+        </form>
+        </div>
+    </body>
+</html>

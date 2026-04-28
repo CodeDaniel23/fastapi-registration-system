@@ -1,0 +1,19 @@
+body{
+                margin: 0px;
+                height: 100vh;
+                display:flex;
+                flex-direction: column;
+                background:linear-gradient(
+                to bottom right,
+                rgb(149, 211, 235),
+                rgb(224, 161, 247),
+                rgb(220, 180, 187)
+                );
+            }
+            .success{
+                color:white;
+                font-family: calibri;
+                font-weight: bold;
+                font-size: 100px;
+                margin: auto;
+            }
