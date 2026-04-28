@@ -6,26 +6,23 @@ from passlib.context import CryptContext
 from fastapi.staticfiles import StaticFiles
 import os
 
-
 import models
-
 from database import engine, SessionLocal
 
-# models.Base.metadata.create_all(bind=engine)
 
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app = FastAPI()
 
-
-
-app=FastAPI()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 templates = Jinja2Templates(
     directory=os.path.join(BASE_DIR, "templates")
 )
 
+
 templates.env.cache = {}
+
 
 @app.on_event("startup")
 def startup():
